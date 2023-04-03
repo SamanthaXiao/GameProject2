@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <script src="p5.js"></script>
+        <script defer src="https://unpkg.com/p5.collide2d"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                background-image: url('https://cdnb.artstation.com/p/assets/images/images/031/613/961/large/tiago-cerca-castelo.jpg?1604107922');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            var h = window.innerHeight;
+            var w = window.innerWidth; 
+            let girl
+            let hit = false
+            let eW = w/2
+            let eH = h/2
+            let enWidth = 100
+            let enHeight = 150
+
+            function setup() {
+                createCanvas(w,h);
+                noStroke()
+                girl = loadImage('fairy.png')
+                one.setVolume(1.0);
+            }
+
+            function preload() {
+                soundFormats('mp3');
+                one = loadSound('music5.mp3');
+            }
+
+            function draw() {
+                clear()
+
+                if (eW <=1){
+                    eW = 1
+                }
+                if (eH <=1){
+                    eH = 1
+                }
+                if (eW>=w-150){
+                    eW= w-150
+                }
+                if (eH >= h-150){
+                    eH= h-150
+                }
+                if (keyIsDown(LEFT_ARROW)) {
+                    eW -= 5;
+                }
+                if (keyIsDown(RIGHT_ARROW)) {
+                    eW += 5;
+                }
+                if (keyIsDown(UP_ARROW)) {
+                    eH -= 5;
+                }
+                if (keyIsDown(DOWN_ARROW)) {
+                    eH += 5;
+                }
+
+                rectMode(CENTER)
+                fill("black")
+                frameRate(60)
+                rect(frameCount, h/1.5, 60, 30)
+                rect(frameCount, h/2, 60, 30)
+                rect(frameCount, h/3, 60, 30)
+
+                rect(w/1.5,frameCount,60,30)
+                rect(w/2,frameCount,60,30)
+                rect(w/3,frameCount,60,30)
+
+                image(girl, eW, eH, enWidth, enHeight)
+                hit1 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/1.5,60,30)
+                hit3 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/2,60,30)
+                hit5 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/3,60,30)
+                hit2 = collideRectRect(eW,eH,enWidth,enHeight,w/1.5,frameCount,60,30)
+                hit4 = collideRectRect(eW,eH,enWidth,enHeight,w/2,frameCount,60,30)
+                hit6 = collideRectRect(eW,eH,enWidth,enHeight,w/3,frameCount,60,30)
+
+                if (hit1===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+                if (hit2===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+                if (hit3===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+                if (hit4===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+                if (hit5===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+                if (hit6===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+
+                soundBoard();
+            }
+
+            function soundBoard() {
+                if(keyIsDown(13)) {
+                    if (one.isPlaying()) {
+                        one.stop();
+                    }else {
+                        one.loop();
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>
