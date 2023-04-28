@@ -22,22 +22,23 @@
             let hit = false
             let eW = w/2
             let eH = h/2
-            let enWidth = 100
-            let enHeight = 150
+            let enWidth = 150
+            let enHeight = 125
 
             function setup() {
                 createCanvas(w,h);
                 noStroke()
-                girl = loadImage('fairy.png')
-                one.setVolume(1.0);
+                man = loadImage('running.png')
+                //one.setVolume(1.0);
             }
 
-            function preload() {
-                soundFormats('mp3');
-                one = loadSound('music5.mp3');
-            }
+            //function preload() {
+                //soundFormats('mp3');
+                //one = loadSound('music.mp3');
+            //}
 
             function draw() {
+                
                 clear()
 
                 if (eW <=1){
@@ -76,7 +77,7 @@
                 rect(w/2,frameCount,60,30)
                 rect(w/3,frameCount,60,30)
 
-                image(girl, eW, eH, enWidth, enHeight)
+                image(man, eW, eH, enWidth, enHeight)
                 hit1 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/1.5,60,30)
                 hit3 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/2,60,30)
                 hit5 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/3,60,30)
@@ -115,7 +116,8 @@
                     eH = random(0,h -50)
                 }
 
-                soundBoard();
+
+                //soundBoard();
             }
 
             function soundBoard() {

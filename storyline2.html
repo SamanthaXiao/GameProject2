@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-image: url('castle2.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #story {
+                width: 400px;
+                height: 220px;
+                position: absolute;
+                left: 36%;
+                top: 28%;
+                background-color: white;
+                font-family: 'Bruno Ace SC', cursive;
+            }
+
+            #next {
+                width: 100px;
+                height: 100px;
+                background-color: white;
+                position: absolute;
+                top: 65%;
+                left: 47%;
+                font-family: 'Bruno Ace SC', cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="story">This day was as usual, everyone was doing their own things, 
+            but suddenly, the middle of the city began to shake. An old woman wearing 
+            a black cloak and sitting on a broom emerged from the ground. Her hands 
+            were bloody, as if she had just killed someone. She scares everyone when 
+            she speaks. It turned out that she was a well-known black witch, who was 
+            said to kill people without blinking an eye.
+        </div>
+        <button id="next" onclick="start()">Next</button>
+        <script>
+            function start() {
+                location.href ="storyline3.html";
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
+        <style>
+            body {
+                background-image: url('castle.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            #story {
+                width: 300px;
+                height: 180px;
+                position: absolute;
+                left: 40%;
+                top: 30%;
+                background-color: white;
+                font-family: 'Bruno Ace SC', cursive;
+            }
+
+            #next {
+                width: 100px;
+                height: 100px;
+                background-color: white;
+                position: absolute;
+                top: 65%;
+                left: 47%;
+                font-family: 'Bruno Ace SC', cursive;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="story">A long time ago, there was a magnificent country. 
+            Inside lived a happy royal family. The king organized the 
+            country in an orderly manner, and the queen was very beautiful appearance 
+            and gentle personality. They also had a very cute prince.
+        </div>
+        <button id="next" onclick="start()">Next</button>
+        <script>
+            function start() {
+                location.href ="storyline2.html";
+            }
+        </script>
+    </body>
+</html>
