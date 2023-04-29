@@ -1,9 +1,13 @@
 <html>
     <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
         <script src="p5.js"></script>
         <script defer src="https://unpkg.com/p5.collide2d"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.js" integrity="sha512-TU9AWtV5uUZPX8dbBAH8NQF1tSdigPRRT82vllAQ1Ke28puiqLA6ZVKxtUGlgrH6yWFnkKy+sE6luNEGH9ar0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
         <style>
+            /*styling background*/
             body {
                 margin: 0;
                 padding: 0;
@@ -12,9 +16,22 @@
                 background-repeat: no-repeat;
                 background-size: cover;
             }
+
+            /*styling the life sentence*/
+            #life {
+                width: 100px;
+                height: 20px;
+                background-color: white;
+                color: black;
+                font-family: 'Bruno Ace SC', cursive;
+                position: absolute;
+                left: 90%;
+                top: 3%;
+            }
         </style>
     </head>
     <body>
+        <div id="life">Life: 1</div>
         <script>
             var h = window.innerHeight;
             var w = window.innerWidth; 
@@ -22,21 +39,19 @@
             let hit = false
             let eW = w/2
             let eH = h/2
-            let enWidth = 150
-            let enHeight = 125
+            let enWidth = 100
+            let enHeight = 100
 
+            /*setup the web page*/
             function setup() {
                 createCanvas(w,h);
                 noStroke()
-                man = loadImage('running.png')
-                //one.setVolume(1.0);
+                man = loadImage('solder.jpg')
+                magic = loadImage('magic.jpg')
+                witch = loadImage('witch.png')
             }
 
-            //function preload() {
-                //soundFormats('mp3');
-                //one = loadSound('music.mp3');
-            //}
-
+            /*created the game process*/
             function draw() {
                 
                 clear()
@@ -47,11 +62,11 @@
                 if (eH <=1){
                     eH = 1
                 }
-                if (eW>=w-150){
-                    eW= w-150
+                if (eW>=w-105){
+                    eW= w-105
                 }
-                if (eH >= h-150){
-                    eH= h-150
+                if (eH >= h-105){
+                    eH= h-105
                 }
                 if (keyIsDown(LEFT_ARROW)) {
                     eW -= 5;
@@ -67,24 +82,34 @@
                 }
 
                 rectMode(CENTER)
-                fill("black")
-                frameRate(60)
-                rect(frameCount, h/1.5, 60, 30)
-                rect(frameCount, h/2, 60, 30)
-                rect(frameCount, h/3, 60, 30)
+                frameRate(150)
+                image(magic,frameCount, h/1, 50, 40)
+                image(magic,frameCount, h/1.5, 50, 40)
+                image(magic,frameCount, h/2, 50, 40)
+                image(magic,frameCount, h/3, 50, 40)
+                image(magic,frameCount,h/4,50,40)
 
-                rect(w/1.5,frameCount,60,30)
-                rect(w/2,frameCount,60,30)
-                rect(w/3,frameCount,60,30)
+                image(magic,w/1.5,frameCount,50,40)
+                image(magic,w/2,frameCount,50,40)
+                image(magic,w/3,frameCount,50,40)
 
+                image(witch,0,0,100,100)
                 image(man, eW, eH, enWidth, enHeight)
-                hit1 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/1.5,60,30)
-                hit3 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/2,60,30)
-                hit5 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/3,60,30)
-                hit2 = collideRectRect(eW,eH,enWidth,enHeight,w/1.5,frameCount,60,30)
-                hit4 = collideRectRect(eW,eH,enWidth,enHeight,w/2,frameCount,60,30)
-                hit6 = collideRectRect(eW,eH,enWidth,enHeight,w/3,frameCount,60,30)
 
+                hit1 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/1,50,40)
+                hit3 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/1.5,50,40)
+                hit5 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/2,50,40)
+                hit7 = collideRectRect(eW,eH,enWidth,enHeight,frameCount,h/3,50,40)
+                hit9 = collideRectRect(eW,eH,enWidth,enHeight,h/4,frameCount,50,40)
+                hit2 = collideRectRect(eW,eH,enWidth,enHeight,w/1.5,frameCount,50,40)
+                hit4 = collideRectRect(eW,eH,enWidth,enHeight,w/2,frameCount,50,40)
+                hit6 = collideRectRect(eW,eH,enWidth,enHeight,w/3,frameCount,50,40)
+                hit = collideRectRect(eW,eH,enWidth,enHeight,0,0,100,100)
+
+
+                if (hit===true) {
+                    location.href ="storyline7.html";
+                }
                 if (hit1===true) {
                     window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
                     eW = random(0,w -50)
@@ -115,20 +140,18 @@
                     eW = random(0,w -50)
                     eH = random(0,h -50)
                 }
-
-
-                //soundBoard();
-            }
-
-            function soundBoard() {
-                if(keyIsDown(13)) {
-                    if (one.isPlaying()) {
-                        one.stop();
-                    }else {
-                        one.loop();
-                    }
+                if (hit7===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
+                }
+                if (hit9===true) {
+                    window.alert("OH NO! YOU BUMP INTO THE BLACK MAGIC, CLICK TO TRY AGAIN")
+                    eW = random(0,w -50)
+                    eH = random(0,h -50)
                 }
             }
+
         </script>
     </body>
 </html>

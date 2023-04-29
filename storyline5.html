@@ -5,9 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" rel="stylesheet">
         <style>
             body {
-                background-image: url('castle5.jpg');
-                background-repeat: no-repeat;
-                background-size: cover;
+                background-color: black;
             }
 
             #story {
@@ -18,6 +16,43 @@
                 top: 30%;
                 background-color: white;
                 font-family: 'Bruno Ace SC', cursive;
+            }
+
+            #people {
+                width: 200px;
+                height: 150px;
+                position: absolute;
+                background-image: url('people.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #people2 {
+                width: 200px;
+                height: 150px;
+                position: absolute;
+                left: 80%;
+                background-image: url('people.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #people3 {
+                width: 200px;
+                height: 150px;
+                position: absolute;
+                top: 80%;
+                background-image: url('people.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            #people4 {
+                width: 200px;
+                height: 150px;
+                position: absolute;
+                left: 80%;
+                top: 80%;
+                background-image: url('people.png');
+                background-repeat: no-repeat;
+                background-size: cover;
             }
 
             #next {
@@ -39,6 +74,11 @@
             in their eyes. He drew his sword and planned to die with the witch 
             in front of him. But he overestimated himself.
         </div>
+        <div id="people"></div>
+        <div id="people2"></div>
+        <div id="people3"></div>
+        <div id="people4"></div>
+
         <button id="next" onclick="start()">Next</button>
         <script>
             function start() {
